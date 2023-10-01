@@ -69,6 +69,11 @@ Kubernetes on Google Cloud
   
       * gcloud container clusters create demo-cluster --machine-type=e2-medium --zone=$ZONE  --num-nodes 2
 
+                                              (or)
+
+      * gcloud beta container --project "lucky-leaf-396003" clusters create "my-first-clsuter" --region "us-central1" --no-enable-basic-auth --cluster-version "1.27.3-gke.100" --release-channel "None" --machine-type "e2-medium" --image-type "COS_CONTAINERD" --disk-type "pd-standard" --disk-size "100" --metadata disable-legacy-endpoints=true --scopes "https://www.googleapis.com/auth/devstorage.read_only","https://www.googleapis.com/auth/logging.write","https://www.googleapis.com/auth/monitoring","https://www.googleapis.com/auth/servicecontrol","https://www.googleapis.com/auth/service.management.readonly","https://www.googleapis.com/auth/trace.append" --num-nodes "1" --logging=SYSTEM,WORKLOAD --monitoring=SYSTEM --enable-ip-alias --network "projects/lucky-leaf-396003/global/networks/default" --subnetwork "projects/lucky-leaf-396003/regions/us-central1/subnetworks/default" --no-enable-intra-node-visibility --default-max-pods-per-node "110" --enable-autoscaling --min-nodes "0" --max-nodes "1" --location-policy "BALANCED" --security-posture=standard --workload-vulnerability-scanning=disabled --no-enable-master-authorized-networks --addons HorizontalPodAutoscaling,HttpLoadBalancing,GcePersistentDiskCsiDriver --enable-autoupgrade --enable-autorepair --max-surge-upgrade 1 --max-unavailable-upgrade 0 --binauthz-evaluation-mode​=DISABLED --enable-managed-prometheus --enable-shielded-nodes --node-locations "us-central1-b"
+ 
+
 * After the cluster is created, check your installed version of Kubernetes using the kubectl version command:
   
       * kubectl version
